@@ -13,8 +13,10 @@ import {
   Menu,
   DollarSign,
   Activity,
-  CreditCard
+  CreditCard,
+  Image as ImageIcon
 } from 'lucide-react';
+import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Dashboard() {
@@ -47,10 +49,24 @@ export default function Dashboard() {
             <Users className="w-5 h-5 mr-2" />
             {isSidebarOpen && <span>Users</span>}
           </Button>
-          <Button variant="ghost" className={`w-full justify-start ${!isSidebarOpen && 'justify-center px-2'}`}>
-            <Activity className="w-5 h-5 mr-2" />
-            {isSidebarOpen && <span>Activity</span>}
-          </Button>
+          <Link href="/posts" className="w-full">
+            <Button variant="ghost" className={`w-full justify-start ${!isSidebarOpen && 'justify-center px-2'}`}>
+              <Activity className="w-5 h-5 mr-2" />
+              {isSidebarOpen && <span>Posts</span>}
+            </Button>
+          </Link>
+          <Link href="/photos" className="w-full">
+            <Button variant="ghost" className={`w-full justify-start ${!isSidebarOpen && 'justify-center px-2'}`}>
+              <ImageIcon className="w-5 h-5 mr-2" />
+              {isSidebarOpen && <span>Photos</span>}
+            </Button>
+          </Link>
+          <Link href="/payments" className="w-full">
+            <Button variant="ghost" className={`w-full justify-start ${!isSidebarOpen && 'justify-center px-2'}`}>
+              <CreditCard className="w-5 h-5 mr-2" />
+              {isSidebarOpen && <span>Payments</span>}
+            </Button>
+          </Link>
           <Button variant="ghost" className={`w-full justify-start ${!isSidebarOpen && 'justify-center px-2'}`}>
             <Settings className="w-5 h-5 mr-2" />
             {isSidebarOpen && <span>Settings</span>}
