@@ -8,6 +8,8 @@ export function generatePayments(count: number): Payment[] {
       Math.floor(Math.random() * 4)
     ] as Payment["status"],
     email: `user${i + 1}@example.com`,
-    date: new Date(Date.now() - Math.floor(Math.random() * 10000000000)).toISOString().split('T')[0],
+    date: new Date(Date.now() - Math.floor(Math.random() * 10000000000))
+      .toISOString()
+      .split("T")[0],
   }));
 }

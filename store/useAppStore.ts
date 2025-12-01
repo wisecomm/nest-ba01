@@ -1,15 +1,15 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 interface AppState {
   userName: string;
   setUserName: (name: string) => void;
-  theme: 'light' | 'dark';
+  theme: "light" | "dark";
   toggleTheme: () => void;
 }
 
 export const useAppStore = create<AppState>((set) => ({
-  userName: 'User',
+  userName: "User",
   setUserName: (name) => set({ userName: name }),
-  theme: 'light',
-  toggleTheme: () => set((state) => ({ theme: state.theme === 'light' ? 'dark' : 'light' })),
+  theme: "light",
+  toggleTheme: () => set((state) => ({ theme: state.theme === "light" ? "dark" : "light" })),
 }));

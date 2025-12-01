@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import { useAppStore } from '@/store/useAppStore';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { 
-  LayoutDashboard, 
-  Users, 
-  Settings, 
-  Bell, 
-  Search, 
+import { useAppStore } from "@/store/useAppStore";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import {
+  LayoutDashboard,
+  Users,
+  Settings,
+  Bell,
+  Search,
   Menu,
   DollarSign,
   Activity,
   CreditCard,
-  Image as ImageIcon
-} from 'lucide-react';
-import Link from 'next/link';
-import { useState } from 'react';
+  Image as ImageIcon,
+} from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Dashboard() {
   const { userName } = useAppStore();
@@ -26,55 +26,75 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex">
       {/* Sidebar */}
-      <aside 
+      <aside
         className={`${
-          isSidebarOpen ? 'w-64' : 'w-20'
+          isSidebarOpen ? "w-64" : "w-20"
         } bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transition-all duration-300 flex flex-col fixed h-full z-20`}
       >
         <div className="p-4 flex items-center justify-between border-b border-slate-200 dark:border-slate-800 h-16">
-          <div className={`font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-cyan-600 ${!isSidebarOpen && 'hidden'}`}>
+          <div
+            className={`font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-cyan-600 ${!isSidebarOpen && "hidden"}`}
+          >
             Nexus
           </div>
           <Button variant="ghost" size="icon" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <Menu className="w-5 h-5" />
           </Button>
         </div>
-        
+
         <nav className="flex-1 p-4 space-y-2">
-          <Button variant="secondary" className={`w-full justify-start ${!isSidebarOpen && 'justify-center px-2'}`}>
+          <Button
+            variant="secondary"
+            className={`w-full justify-start ${!isSidebarOpen && "justify-center px-2"}`}
+          >
             <LayoutDashboard className="w-5 h-5 mr-2" />
             {isSidebarOpen && <span>Dashboard</span>}
           </Button>
-          <Button variant="ghost" className={`w-full justify-start ${!isSidebarOpen && 'justify-center px-2'}`}>
+          <Button
+            variant="ghost"
+            className={`w-full justify-start ${!isSidebarOpen && "justify-center px-2"}`}
+          >
             <Users className="w-5 h-5 mr-2" />
             {isSidebarOpen && <span>Users</span>}
           </Button>
           <Link href="/posts" className="w-full">
-            <Button variant="ghost" className={`w-full justify-start ${!isSidebarOpen && 'justify-center px-2'}`}>
+            <Button
+              variant="ghost"
+              className={`w-full justify-start ${!isSidebarOpen && "justify-center px-2"}`}
+            >
               <Activity className="w-5 h-5 mr-2" />
               {isSidebarOpen && <span>Posts</span>}
             </Button>
           </Link>
           <Link href="/photos" className="w-full">
-            <Button variant="ghost" className={`w-full justify-start ${!isSidebarOpen && 'justify-center px-2'}`}>
+            <Button
+              variant="ghost"
+              className={`w-full justify-start ${!isSidebarOpen && "justify-center px-2"}`}
+            >
               <ImageIcon className="w-5 h-5 mr-2" />
               {isSidebarOpen && <span>Photos</span>}
             </Button>
           </Link>
           <Link href="/payments" className="w-full">
-            <Button variant="ghost" className={`w-full justify-start ${!isSidebarOpen && 'justify-center px-2'}`}>
+            <Button
+              variant="ghost"
+              className={`w-full justify-start ${!isSidebarOpen && "justify-center px-2"}`}
+            >
               <CreditCard className="w-5 h-5 mr-2" />
               {isSidebarOpen && <span>Payments</span>}
             </Button>
           </Link>
-          <Button variant="ghost" className={`w-full justify-start ${!isSidebarOpen && 'justify-center px-2'}`}>
+          <Button
+            variant="ghost"
+            className={`w-full justify-start ${!isSidebarOpen && "justify-center px-2"}`}
+          >
             <Settings className="w-5 h-5 mr-2" />
             {isSidebarOpen && <span>Settings</span>}
           </Button>
         </nav>
 
         <div className="p-4 border-t border-slate-200 dark:border-slate-800">
-          <div className={`flex items-center gap-3 ${!isSidebarOpen && 'justify-center'}`}>
+          <div className={`flex items-center gap-3 ${!isSidebarOpen && "justify-center"}`}>
             <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold">
               {userName.charAt(0)}
             </div>
@@ -89,12 +109,15 @@ export default function Dashboard() {
       </aside>
 
       {/* Main Content */}
-      <main className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-20'}`}>
+      <main className={`flex-1 transition-all duration-300 ${isSidebarOpen ? "ml-64" : "ml-20"}`}>
         {/* Header */}
         <header className="h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-10 px-6 flex items-center justify-between">
           <div className="flex items-center gap-4 w-full max-w-md">
             <Search className="w-5 h-5 text-muted-foreground" />
-            <Input placeholder="Search..." className="bg-transparent border-none focus-visible:ring-0 pl-0" />
+            <Input
+              placeholder="Search..."
+              className="bg-transparent border-none focus-visible:ring-0 pl-0"
+            />
           </div>
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="icon">

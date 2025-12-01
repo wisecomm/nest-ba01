@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft, Loader2 } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { useEffect, useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft, Loader2 } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 interface Photo {
   albumId: number;
@@ -23,14 +23,14 @@ export default function PhotosPage() {
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/photos');
+        const response = await fetch("https://jsonplaceholder.typicode.com/photos");
         if (!response.ok) {
-          throw new Error('Failed to fetch photos');
+          throw new Error("Failed to fetch photos");
         }
         const data = await response.json();
         setPhotos(data.slice(0, 20)); // Limit to 20 photos for demo
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
+        setError(err instanceof Error ? err.message : "An error occurred");
       } finally {
         setLoading(false);
       }
@@ -65,14 +65,17 @@ export default function PhotosPage() {
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {photos.map((photo) => (
-              <Card key={photo.id} className="overflow-hidden hover:shadow-lg transition-all duration-300 group">
+              <Card
+                key={photo.id}
+                className="overflow-hidden hover:shadow-lg transition-all duration-300 group"
+              >
                 <CardContent className="p-0 relative aspect-square">
                   {/* Note: In a real app, you should configure next.config.ts to allow external domains for Image optimization.
                       For this demo, we'll use a standard img tag if next/image fails or requires config, 
                       but let's try to use a simple img tag for simplicity with external placeholder URLs 
                       to avoid config restart requirements for the user. 
                    */}
-                  <Image 
+                  <Image
                     src={`https://picsum.photos/id/${photo.id}/600/600`}
                     alt={photo.title}
                     fill

@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, LayoutDashboard, Sparkles } from 'lucide-react';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight, LayoutDashboard, Sparkles } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 p-4">
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-      
+
       <div className="relative z-10 max-w-4xl w-full text-center space-y-8">
         <div className="space-y-4">
           <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">
@@ -20,8 +20,8 @@ export default function Home() {
             Modern Dashboard
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            A premium starting point built with the latest technologies. 
-            Experience the power of Next.js 16, Tailwind 4, and shadcn/ui.
+            A premium starting point built with the latest technologies. Experience the power of
+            Next.js 16, Tailwind 4, and shadcn/ui.
           </p>
         </div>
 
@@ -39,7 +39,7 @@ export default function Home() {
               </CardDescription>
             </CardContent>
           </Card>
-          
+
           <Card className="bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border-indigo-100 dark:border-indigo-900/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -71,7 +71,10 @@ export default function Home() {
 
         <div className="pt-8">
           <Link href="/dashboard">
-            <Button size="lg" className="rounded-full px-8 py-6 text-lg bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 shadow-lg hover:shadow-xl transition-all duration-300 group">
+            <Button
+              size="lg"
+              className="rounded-full px-8 py-6 text-lg bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 shadow-lg hover:shadow-xl transition-all duration-300 group"
+            >
               Get Started
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
